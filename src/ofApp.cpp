@@ -55,6 +55,9 @@ void ofApp::draw(){
     ofColor avgColor = ofApp::getAverageColorOfSection(currentSection);
     ofSetColor(avgColor);
     ofDrawRectangle(740, (ofGetHeight() / 2) - 125, 250, 250);
+    ofSetColor(255, 255, 255);
+    string rbgString = "rgb(" + ofToString((int)avgColor.r) + ", " + ofToString((int)avgColor.g) + ", " + ofToString((int)avgColor.b) + ")";
+    ofDrawBitmapString(rbgString, 740, (ofGetHeight() / 2) + 145);
     
     // Highlight the currently selected section. Default FPS is 60.
     ofEnableAlphaBlending();

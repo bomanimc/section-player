@@ -10,6 +10,7 @@ class ofApp : public ofBaseApp{
 		void draw();
     
         ofColor getAverageColorOfSection(ofImage section);
+        string getNotesForColorAndPlay(int colorVal);
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -25,4 +26,20 @@ class ofApp : public ofBaseApp{
     
     ofVideoGrabber cam;
     ofImage frame;
+    string noteString;
+    
+    // Sounds
+    ofSoundPlayer c1;
+    ofSoundPlayer c1s;
+    ofSoundPlayer d1;
+    ofSoundPlayer d1s;
+    ofSoundPlayer e1;
+    ofSoundPlayer f1;
+    ofSoundPlayer f1s;
+    ofSoundPlayer g1;
+    ofSoundPlayer g1s;
+    ofSoundPlayer a1;
+    ofSoundPlayer a1s;
+    ofSoundPlayer b1;
+    ofSoundPlayer c2;
 };

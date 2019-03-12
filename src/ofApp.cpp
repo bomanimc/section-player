@@ -16,15 +16,18 @@ void ofApp::update(){
 void ofApp::draw(){
     int stepSize = 50;
     int margin = 10;
+    int numRows = cam.getWidth() / stepSize;
+    int numCols = cam.getHeight() / stepSize;
     vector<ofImage> sections;
+    vector<ofVec2f> sectionPositions;
     
     if (cam.isFrameNew()){
         ofPixels pixels = cam.getPixels();
         frame.setFromPixels(pixels);
     }
     
-    for (int i = 0; i < frame.getWidth() / stepSize; i++) {
-        for (int j = 0; j < frame.getHeight() / stepSize; j++) {
+    for (int j = 0; j < numCols; j++) {
+        for (int i = 0; i < numRows; i++) {
             int horizInc = i * stepSize;
             int horizMargin = margin * i;
             int vertInc = j * stepSize;
@@ -34,8 +37,18 @@ void ofApp::draw(){
             imgSection.cropFrom(frame, horizInc, vertInc, stepSize, stepSize);
             sections.push_back(imgSection);
             imgSection.draw(horizInc + horizMargin, vertInc + vertMargin);
+            sectionPositions.push_back(ofVec2f(horizInc + horizMargin, vertInc + vertMargin));
         }
     }
+    
+    // Highlight the currently selected section. Default FPS is 60.
+    int currentSectionIdx = (ofGetFrameNum() / 60) % 25;
+    ofVec2f currentImagePos = sectionPositions[currentSectionIdx];
+    ofImage currentSection = sections[currentSectionIdx];
+    ofEnableAlphaBlending();
+    ofSetColor(255, 255, 255, 127);
+    ofDrawRectangle(currentImagePos[0], currentImagePos[1], stepSize, stepSize);
+    ofDisableAlphaBlending();
 }
 
 //--------------------------------------------------------------

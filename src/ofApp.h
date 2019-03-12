@@ -23,5 +23,4 @@ class ofApp : public ofBaseApp{
     
     ofVideoGrabber cam;
     ofImage frame;
-    vector<ofImage> sections;
 };

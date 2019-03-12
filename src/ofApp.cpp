@@ -16,6 +16,7 @@ void ofApp::update(){
 void ofApp::draw(){
     int stepSize = 50;
     int margin = 10;
+    vector<ofImage> sections;
     
     if (cam.isFrameNew()){
         ofPixels pixels = cam.getPixels();
@@ -29,7 +30,10 @@ void ofApp::draw(){
             int vertInc = j * stepSize;
             int vertMargin = margin * j;
             
-            frame.drawSubsection(horizInc + horizMargin, vertInc + vertMargin, stepSize, stepSize, horizInc, vertInc);
+            ofImage imgSection;
+            imgSection.cropFrom(frame, horizInc, vertInc, stepSize, stepSize);
+            sections.push_back(imgSection);
+            imgSection.draw(horizInc + horizMargin, vertInc + vertMargin);
         }
     }
 }

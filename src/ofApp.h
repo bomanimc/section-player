@@ -29,17 +29,19 @@ class ofApp : public ofBaseApp{
     string noteString;
     
     // Sounds
-    ofSoundPlayer c1;
-    ofSoundPlayer c1s;
-    ofSoundPlayer d1;
-    ofSoundPlayer d1s;
-    ofSoundPlayer e1;
-    ofSoundPlayer f1;
-    ofSoundPlayer f1s;
-    ofSoundPlayer g1;
-    ofSoundPlayer g1s;
-    ofSoundPlayer a1;
-    ofSoundPlayer a1s;
-    ofSoundPlayer b1;
-    ofSoundPlayer c2;
+    ofSoundPlayer as3;
+    ofSoundPlayer as4;
+    ofSoundPlayer as5;
+    ofSoundPlayer cs3;
+    ofSoundPlayer cs4;
+    ofSoundPlayer cs5;
+    ofSoundPlayer ds3;
+    ofSoundPlayer ds4;
+    ofSoundPlayer ds5;
+    ofSoundPlayer fs3;
+    ofSoundPlayer fs4;
+    ofSoundPlayer fs5;
+    ofSoundPlayer gs3;
+    ofSoundPlayer gs4;
+    ofSoundPlayer gs5;
 };

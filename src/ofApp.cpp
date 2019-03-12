@@ -4,33 +4,37 @@
 void ofApp::setup(){
     cam.setup(500, 500);
     
-    c1.load("c1.mp3");
-    c1s.load("c1s.mp3");
-    d1.load("d1.mp3");
-    d1s.load("d1s.mp3");
-    e1.load("e1.mp3");
-    f1.load("f1.mp3");
-    f1s.load("f1s.mp3");
-    g1.load("g1.mp3");
-    g1s.load("g1s.mp3");
-    a1.load("a1.mp3");
-    a1s.load("a1s.mp3");
-    b1.load("b1.mp3");
-    c2.load("c2.mp3");
+    as3.load("as3.mp3");
+    as4.load("as4.mp3");
+    as5.load("as5.mp3");
+    cs3.load("cs3.mp3");
+    cs4.load("cs4.mp3");
+    cs5.load("cs5.mp3");
+    ds3.load("ds3.mp3");
+    ds4.load("ds4.mp3");
+    ds5.load("ds5.mp3");
+    fs3.load("fs3.mp3");
+    fs4.load("fs4.mp3");
+    fs5.load("fs5.mp3");
+    gs3.load("gs3.mp3");
+    gs4.load("gs4.mp3");
+    gs5.load("gs5.mp3");
     
-    c1.setVolume(0.9f);
-    c1s.setVolume(0.9f);
-    d1.setVolume(0.9f);
-    d1s.setVolume(0.9f);
-    e1.setVolume(0.9f);
-    f1.setVolume(0.9f);
-    f1s.setVolume(0.9f);
-    g1.setVolume(0.9f);
-    g1s.setVolume(0.9f);
-    a1.setVolume(0.9f);
-    a1s.setVolume(0.9f);
-    b1.setVolume(0.9f);
-    c2.setVolume(0.9f);
+    as3.setVolume(0.9f);
+    as4.setVolume(0.9f);
+    as5.setVolume(0.9f);
+    cs3.setVolume(0.9f);
+    cs4.setVolume(0.9f);
+    cs5.setVolume(0.9f);
+    ds3.setVolume(0.9f);
+    ds4.setVolume(0.9f);
+    ds5.setVolume(0.9f);
+    fs3.setVolume(0.9f);
+    fs4.setVolume(0.9f);
+    fs5.setVolume(0.9f);
+    gs3.setVolume(0.9f);
+    gs4.setVolume(0.9f);
+    gs5.setVolume(0.9f);
 }
 
 //--------------------------------------------------------------
@@ -96,73 +100,83 @@ void ofApp::draw(){
     
     // Highlight the currently selected section. Default FPS is 60.
     ofEnableAlphaBlending();
-    ofSetColor(255, 255, 255, 127);
+    ofSetColor(250, 237, 39, 127);
     ofDrawRectangle(currentImagePos[0], currentImagePos[1], stepSize, stepSize);
+    ofSetColor(255, 255, 255, 127);
     ofDisableAlphaBlending();
 }
 
 string ofApp::getNotesForColorAndPlay(int colorVal) {
     string note;
     
-    int colorDivision = ((float)colorVal / 255) * 13;
+    int colorDivision = ((float)colorVal / 255) * 15;
     
     switch (colorDivision)
     {
         case 0:
         case 1:
-            note = "C";
-            c1.play();
+            note = "C#3";
+            cs3.play();
             break;
         case 2:
-            note = "C#";
-            c1s.play();
+            note = "D#3";
+            ds3.play();
             break;
         case 3:
-            note = "D";
-            d1.play();
+            note = "F#3";
+            fs3.play();
             break;
         case 4:
-            note = "D#";
-            d1s.play();
+            note = "G#3";
+            gs3.play();
             break;
         case 5:
-            note = "E";
-            e1.play();
+            note = "A#3";
+            as3.play();
             break;
         case 6:
-            note = "F";
-            f1.play();
+            note = "C#4";
+            cs4.play();
             break;
         case 7:
-            note = "F#";
-            f1s.play();
+            note = "D#4";
+            ds4.play();
             break;
         case 8:
-            note = "G";
-            g1.play();
+            note = "F#4";
+            fs4.play();
             break;
         case 9:
-            note = "G#";
-            g1s.play();
+            note = "G#4";
+            gs4.play();
             break;
         case 10:
-            note = "A";
-            a1.play();
+            note = "A#4";
+            as4.play();
             break;
         case 11:
-            note = "A#";
-            a1s.play();
+            note = "C#5";
+            cs5.play();
             break;
         case 12:
-            note = "B";
-            b1.play();
+            note = "D#5";
+            ds5.play();
             break;
         case 13:
-            note = "C2";
-            c2.play();
+            note = "F#5";
+            fs5.play();
+            break;
+        case 14:
+            note = "G#5";
+            gs5.play();
+            break;
+        case 15:
+            note = "A#5";
+            as5.play();
             break;
         default:
-            c2.play();
+            note = "?";
+            cs3.play();
     }
     
     return note;

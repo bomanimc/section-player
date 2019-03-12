@@ -47,14 +47,14 @@ void ofApp::draw(){
         return;
     }
     
-    int currentSectionIdx = (ofGetFrameNum() / 30) % 25;
+    int currentSectionIdx = (ofGetFrameNum() / 30) % (numRows * numCols);
     ofVec2f currentImagePos = sectionPositions[currentSectionIdx];
     ofImage currentSection = sections[currentSectionIdx];
     
     // Draw the average color of the current section
     ofColor avgColor = ofApp::getAverageColorOfSection(currentSection);
     ofSetColor(avgColor);
-    ofDrawRectangle(750, (ofGetHeight() / 2) - 125, 250, 250);
+    ofDrawRectangle(740, (ofGetHeight() / 2) - 125, 250, 250);
     
     // Highlight the currently selected section. Default FPS is 60.
     ofEnableAlphaBlending();

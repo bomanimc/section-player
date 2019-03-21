@@ -77,7 +77,7 @@ void ofApp::draw(){
         return;
     }
     
-    int currentSectionIdx = (ofGetFrameNum() / 30) % (numRows * numCols);
+    int currentSectionIdx = (ofGetFrameNum() / 20) % (numRows * numCols);
     ofVec2f currentImagePos = sectionPositions[currentSectionIdx];
     ofImage currentSection = sections[currentSectionIdx];
 
@@ -90,7 +90,7 @@ void ofApp::draw(){
     ofDrawBitmapString(rbgString, 740, (ofGetHeight() / 2) + 145);
     
     // Play sound
-    if (ofGetFrameNum() % 30 == 0) {
+    if (ofGetFrameNum() % 20 == 0) {
         string rNote = ofApp::getNotesForColorAndPlay((int)avgColor.r);
         string gNote = ofApp::getNotesForColorAndPlay((int)avgColor.g);
         string bNote = ofApp::getNotesForColorAndPlay((int)avgColor.b);
